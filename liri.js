@@ -1,4 +1,4 @@
-require("dotenv").config();
+require(".env").config();
 const axios= require("axios");
 var keys = require("./keys.js");
 var moment = require("moment");
