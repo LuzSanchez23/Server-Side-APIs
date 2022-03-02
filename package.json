@@ -20,6 +20,8 @@
   "homepage": "https://github.com/LuzSanchez23/Server-Side-APIs#readme",
 
   "dependencies": {
-    "axios": "^0.26.0"
+    "axios": "^0.26.0",
+    "dotenv": "^16.0.0",
+    "moment": "^2.29.1"
   }
 }
