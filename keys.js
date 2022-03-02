@@ -1,12 +1,11 @@
-var keys = require("./keys.js");
-console.log('this is loaded');
-
+console.log("This is loaded");
 exports.spotify = {
-  id: process.env.SPOTIFY_ID,
-  secret: process.env.SPOTIFY_SECRET
-};
-
-exports.apiKeys = {
-  bands: process.env.BANDS_ID,
-  omdb: process.env.OMDB_API
-}
+    id: process.env.SPOTIFY_ID,
+    secret: process.env.SPOTIFY_SECRET
+  };
+  
+  exports.apiKeys = {
+    bands: process.env.BANDS_ID,
+    omdb: process.env.OMDB_API
+  }
+  
