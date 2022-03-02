@@ -1,3 +1,4 @@
+
 require(".env").config();
 const axios= require("axios");
 var keys = require("./keys.js");
@@ -55,3 +56,6 @@ function startProg(command, input) {
  
 }
 startProg(command, input);
+
+require("dotenv").config();
+
