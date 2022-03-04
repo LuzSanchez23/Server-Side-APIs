@@ -30,8 +30,7 @@ var moviedata = response.data;
          console.log("Actors in the movie: " + response.data.Actors);
      })
     }
-    
-=======
+
 
 require(".env").config();
 const axios= require("axios");
@@ -90,7 +89,5 @@ function startProg(command, input) {
  
 }
 startProg(command, input);
-
-require("dotenv").config();
 
 
