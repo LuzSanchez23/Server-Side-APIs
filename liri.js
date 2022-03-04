@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //read and set enviroment variable
 require("dotenv").config();
 var keys = require("./keys.js");
@@ -15,9 +14,8 @@ var omdbApi = keys.apiKeys.omdb;
 //movie this//
 function getMovie(input) {
     console.log("inside movie-this")
-    axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy" + omdbApi)
+    axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=" + omdbApi)
     .then(function (response) {
-
     var moviedata = response.data;
   
     console.log("Title " + moviedata.Title)
@@ -28,6 +26,22 @@ function getMovie(input) {
 })
 }
 
+// ====Bands in Town -- Luz's part=========
+function showConcert(input) {
+    console.log("Bands in Town Working")
+    axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp" + bandsApi)
+    .then(function (response) {
+
+        var concert = response.data;
+        console.log(response)
+        console.log("Name of Venue " + concert[0].venue.name)
+        console.log("Venue Location " + concert[0].venue.country)
+        console.log("Concert date " + concert[0].festival_start_date)
+        
+})
+}
+// ====Bands in Town -- Ends here=========
+
 function findSong(input) {
     console.log("Inside spotify-this-song")
     //Launch spotify
@@ -36,7 +50,6 @@ function findSong(input) {
             return console.log('Error Occurred' + err);
         } else {
         var spotifyArr = data.tracks.items;
-        // console.log(data.tracks.item[0])
         for (i = 0; i < 2; i++) {
             console.log("song name: " + spotifyArr[i].name)
             console.log("artist: " + spotifyArr[i].artist[0].name)
@@ -44,83 +57,55 @@ function findSong(input) {
         }
     }
     })
-}
+};
 
-=======
+//====Ana's Part - Movie This========
+// function getMovie(input) {
+//     console.log("inside movie this");
 
-require("dotenv").config();
-var keys =require("./keys.js");
-var fs =require("fs");
-var axios=require("axios");
-var moment =require("moment");
+//  axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=full&tomatoes=true&apikey=6c3f9ab7&i=tt0118971" + omdbApi)
+//  .then (function(response) {
+// var moviedata = response.data;
 
-var command =process.argv[2, 3, 4]
-var input =process.argv[2, 3, 4]
-var bandApi = keys.apiKeys.bands;
-var omdbApi =keys.apiKeys.omdb;
-
-//Ana's part
-
-function getMovie(input) {
-    console.log("inside movie this");
-
- axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=full&tomatoes=true&apikey=6c3f9ab7&i=tt0118971" + omdbApi)
- .then (function(response) {
-var moviedata = response.data;
-
-//      function(response) {
-         console.log("Title of the movie: " + response.data.Title);
-         console.log("Year the movie came out: " + response.data.Year);
-         console.log("IMDB Rating of the movie: " + response.data.Rated);
-         console.log("Rotten Tomatoes Rating of the movie: " + response.data.RottenTomatoes);
-         console.log("Country where the movie was produced: " + response.data.Country);
-         console.log("Language of the movie: " + response.data.Language);
-         console.log("Plot of the movie: " + response.data.Plot);
-         console.log("Actors in the movie: " + response.data.Actors);
-     })
-    }
+// //      function(response) {
+//          console.log("Title of the movie: " + response.data.Title);
+//          console.log("Year the movie came out: " + response.data.Year);
+//          console.log("IMDB Rating of the movie: " + response.data.Rated);
+//          console.log("Rotten Tomatoes Rating of the movie: " + response.data.RottenTomatoes);
+//          console.log("Country where the movie was produced: " + response.data.Country);
+//          console.log("Language of the movie: " + response.data.Language);
+//          console.log("Plot of the movie: " + response.data.Plot);
+//          console.log("Actors in the movie: " + response.data.Actors);
+//      })
+//     }
 
 
-require(".env").config();
-const axios= require("axios");
-var keys = require("./keys.js");
-var moment = require("moment");
-//movie this 
-function getMovie(input) {
-    console.log("inside movie-this")
-    axios.get("http://www.omdbapi.com/?t="+input+"&y=&plot=short&apikey="+ omdbApi)
+// require(".env").config();
+// const axios= require("axios");
+// var keys = require("./keys.js");
+// var moment = require("moment");
+ //====Ana's Part - Movie This ends here========
 
-    .then(function(response){
-        var moviedata = response.data;
-        console.log("title: " + moviedata.Title)
-        console.log("year: "+ moviedata.Year)
-        console.log("rated: "+moviedata.Rated)
-        console.log("released: "+moviedata.Released)
-        console.log("director: "+ moviedata.Director)
-        console.log("writer: "+ moviedata.Writer)
-        console.log("actor: "+ moviedata.Actor)
-        console.log("plot: " + moviedata.Plot)
-    })
-}
 
-//spotify this song
-function findsong(input) {
-    console.log("inside find-song")
-    spotify.search({type: 'track', query: input }, function (err, data) {
-        if (err) {
-            return console.log('Error Occurred'+ err);
-        }
-        var spotifyArr = data.tracks.items;
-        //console.log(data.tracks.items[0])
-        for (i =0; i < 2; i++) {
-            console.log("song name: " + spotifyArr[i].artists[0].name)
-            console.log("-------")
-        }
+// //=====Spotify This Song starts here=========
+// function findsong(input) {
+//     console.log("inside find-song")
+//     spotify.search({type: 'track', query: input }, function (err, data) {
+//         if (err) {
+//             return console.log('Error Occurred'+ err);
+//         }
+//         var spotifyArr = data.tracks.items;
+//         for (i =0; i < 2; i++) {
+//             console.log("song name: " + spotifyArr[i].artists[0].name)
+//             console.log("-------")
+//         }
 
-    })
-}
->>>>>>> 44c062402b83d9df353eda2948b892850465d1e6
-function startProg(command, input) {
+//     })
+// }
+//=====Spotify ends here=========
+
+//======Switch Function========
+
     switch (command) {
         case "concert-this": showConcert(input);
             break;
@@ -137,18 +122,4 @@ function startProg(command, input) {
     }
  
  
-}
-startProg(command, input);
 
-
-<<<<<<< HEAD
-
-
-
-
-//spotify//
-// var Spotify = require("node-spotify-api");
-// const { response } = require("express");
-// var spotify = new keys.spotify(keys.spotify);
-=======
->>>>>>> 44c062402b83d9df353eda2948b892850465d1e6
