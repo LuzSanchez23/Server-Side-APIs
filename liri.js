@@ -11,15 +11,14 @@ var input = process.argv[3]
 var bandsApi = keys.apiKeys.bands;
 var omdbApi = keys.apiKeys.omdb;
 
-//OMBD//
 //movie this//
 function getMovie(input) {
     console.log("inside movie-this")
     axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy" + omdbApi)
     .then(function (response) {
-    // console.log(response.data);
+
     var moviedata = response.data;
-    // console.log(moviedata)
+  
     console.log("Title " + moviedata.Title)
     console.log("Year " + moviedata.Year)
     console.log("Rated " + moviedata.Rated)
