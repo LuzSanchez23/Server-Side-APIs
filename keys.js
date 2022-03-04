@@ -9,5 +9,5 @@ exports.spotify = {
   exports.apiKeys = {
     bands: process.env.BANDS_ID,
     omdb: process.env.OMDB_API
-  }
+  };
   
