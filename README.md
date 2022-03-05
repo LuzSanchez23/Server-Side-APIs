@@ -20,7 +20,7 @@ This app can take in one of the following commands:
      * Date of the Event (use moment to format this as "MM/DD/YYYY")
 
 EXAMPLE: 
-![Concert Example](/images/Concert-This-ScreenShot-01.png)
+![Concert Example]
 
 
 2. `node liri.js spotify-this-song '<song name here>'`
@@ -52,7 +52,7 @@ EXAMPLE:
      * Plot of the movie.
      * Actors in the movie.
    EXAMPLE: 
-![Movie Example](/images/Movie-This-ScreenShot-01.png)
+![Movie Example](https://github.com/LuzSanchez23/Server-Side-APIs/blob/main/movies%20for%20readme.png?raw=true)
 
    *If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'*
 
