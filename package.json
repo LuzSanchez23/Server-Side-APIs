@@ -42,7 +42,9 @@
 
     "dotenv": "^16.0.0",
 
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+
+    "spotify-web-api-node": "^5.0.2"
 
   }
 
