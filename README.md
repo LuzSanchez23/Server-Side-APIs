@@ -51,7 +51,8 @@ EXAMPLE:
      * Language of the movie.
      * Plot of the movie.
      * Actors in the movie.
-   EXAMPLE: 
+      
+EXAMPLE: 
 ![Movie Example](https://github.com/LuzSanchez23/Server-Side-APIs/blob/main/movies%20for%20readme.png?raw=true)
 
    *If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'*
