@@ -58,5 +58,5 @@ EXAMPLE:
 
 EXAMPLE: 
 ![Movie Example](https://github.com/LuzSanchez23/Server-Side-APIs/blob/main/mr%20nobody%201.png?raw=true)
-
+![Movie Example](https://github.com/LuzSanchez23/Server-Side-APIs/blob/main/mr%20nobody%202.png?raw=true)
 
