@@ -57,6 +57,6 @@ EXAMPLE:
    *If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'*
 
 EXAMPLE: 
-![Movie Example](/images/Movie-This-ScreenShot-01.png)
+![Movie Example](https://github.com/LuzSanchez23/Server-Side-APIs/blob/main/mr%20nobody%201.png?raw=true)
 
 
