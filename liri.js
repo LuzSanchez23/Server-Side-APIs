@@ -1,75 +1,84 @@
+
 require("dotenv").config();
 var keys = require("./keys.js");
+
+// Info for Moment -- Date Formatting
 var moment = require("moment");
+
+// Info for fs
 var fs = require("fs");
+
+//Info for axios
 var axios = require("axios");
 
-
-
+// Takes command
 var command = process.argv[2]
 // var input = process.argv[2]
-// var bandApi = keys.apiKeys.bands;
+var bandsApi = keys.apiKeys.bands;
 var omdbApi = keys.apiKeys.omdb;
 
 
-// //movie this//
-// function getMovie(input) {
-//     console.log("inside movie-this")
-//     axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=" + omdbApi)
-//     .then(function (response) {
-//     var moviedata = response.data;
-  
-//     console.log("Title " + moviedata.Title)
-//     console.log("Year " + moviedata.Year)
-//     console.log("Rated " + moviedata.Rated)
-//     console.log("Director " + moviedata.Director)
-//     console.log("Actors " + moviedata.Actors)
-// })
-// }
-
 // ====Bands in Town -- Luz's part=========
-function showConcert(input) {
-    console.log("Bands in Town Working")
-    axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp" + bandsApi)
-    .then(function (response) {
-
-        var concert = response.data;
-        console.log(response)
-        console.log("Name of Venue " + concert[0].venue.name)
-        console.log("Venue Location " + concert[0].venue.country)
-        console.log("Concert date " + concert[0].festival_start_date)
-        
-})
-}
+   function concertThis(input) {
+        console.log("Bands in Town Working")
+        var artist = process.argv[3]
+        axios.get(" https://rest.bandsintown.com/artists/" + artist + "/events?app_id=" + bandsApi)
+        .then(function (response) {
+            var concert = response.data;
+            console.log(response)
+            console.log("Name of Venue " + concert[0].venue.name);
+            console.log("Venue Location " + concert[0].venue.country);
+            console.log("Concert date " + concert[0].datetime);  
+    })
+    }
 // ====Bands in Town -- Ends here=========
 
-function findSong(input) {
-    console.log("Inside spotify-this-song")
-    //Launch spotify
-    keys.spotify.search({ type: 'track', query: input }, function (err, data) {
-        if (err) {
-            return console.log('Error Occurred' + err);
-        } else {
-        var spotifyArr = data.tracks.items;
-        for (i = 0; i < 2; i++) {
-            console.log("song name: " + spotifyArr[i].name)
-            console.log("artist: " + spotifyArr[i].artist[0].name)
-            console.log("------------------")
-        }
+//======spotify-this-song starts here-- Devin's part =========
+function spotifyThisSong() {
+    if (title == null) {
+        //send the request to the Spotify API
+        spotify.search(
+            {
+                type: "track",
+                query: "The Sign" && "Ace of Base",
+                limit: 1
+            },
+            function (err, data) {
+                if (err) {
+                    return console.log("Error: " + err)
+                }
+                console.log("Artist: ", data.tracks.items[0].artists[0].name)
+                console.log("Song: ", data.tracks.items[0].name)
+                console.log("Preview: ", data.tracks.items[0].preview_url)
+                console.log("Album: ", data.tracks.items[0].album.name)
+            })
     }
-    })
-};
+    else {spotify.search(
+            {
+                type: "track",
+                query: title,
+                limit: 1
+            }, function (err, data) {
+                if (err) {
+                    return console.log("Error: " + err)
+                }
+                console.log("Artist: ", data.tracks.items[0].artists[0].name)
+                console.log("Song: ", data.tracks.items[0].name)
+                console.log("Preview: ", data.tracks.items[0].preview_url)
+                console.log("Album: ", data.tracks.items[0].album.name)
+            })
+    }
+}
+//======spotify-this-song ends here-- Devin's part =========
 
-//====Ana's Part - Movie This========
 
-// var movie = response.data;
+//========Movie This starts here Annastasya Part========
 var movie = process.argv[3];
 
 function movieThis(){
 if (movie == null) {
     axios.get("http://www.omdbapi.com/?t=mr+nobody&y=&plot=short&apikey=trilogy")
    
-    
     .then(function (response) {
         console.log(response)   
         // var movie = response.data;
@@ -98,18 +107,16 @@ else {
             console.log("Plot of the movie: " + response.data.Plot);
             console.log("Actors in the movie: " + response.data.Actors);
 }) 
-                 
-}
-}
-
+}}
+//========Movie This ends here========
 
 
 // function startProg(command, input) {
 
     switch (command) {
-        case "concert-this": showConcert(input);
+        case "concert-this": concertThis();
             break;
-        case "spotify-this-song": findSong(input);
+        case "spotify-this-song": findSong();
             break;
         case "movie-this": movieThis();
             break;
@@ -120,20 +127,10 @@ else {
         default:
             console.log("LIRI doesn't know what you are talking about");
     }
-//====Ana's Part - Movie This ends here========
 
 
- // //=====Spotify This Song starts here=========
-
-//=====Spotify ends here=========
 
  
-
-
-
-
-
-
 
 
 
