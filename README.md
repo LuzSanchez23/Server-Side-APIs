@@ -20,7 +20,8 @@ This app can take in one of the following commands:
      * Date of the Event (use moment to format this as "MM/DD/YYYY")
 
 EXAMPLE: 
-![Concert Example] (C:\Users\Student\code\Server-Side-APIs\concert img 1.JPG)
+![Concert](images/C:\Users\Student\code\Server-Side-APIs\images\concert img 1.JPG)
+
 ![Concert Example] (C:\Users\Student\code\Server-Side-APIs\concert img 2.JPG)
 
 2. `node liri.js spotify-this-song '<song name here>'`
